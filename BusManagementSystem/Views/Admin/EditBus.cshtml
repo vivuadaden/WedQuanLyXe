@@ -1,0 +1,71 @@
+﻿@model BusManagementSystem.Models.Bus
+
+@{
+    ViewData["Title"] = "Chỉnh sửa xe";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-warning">
+                    <h4><i class="bi bi-pencil"></i> Chỉnh sửa thông tin xe</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="EditBus" method="post">
+                        <input type="hidden" asp-for="BusID" />
+                        <input type="hidden" asp-for="CreatedDate" />
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="BusNumber" class="form-label">Số xe</label>
+                                    <input asp-for="BusNumber" class="form-control" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="LicensePlate" class="form-label">Biển số xe</label>
+                                    <input asp-for="LicensePlate" class="form-control" />
+                                    <span asp-validation-for="LicensePlate" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Status" class="form-label">Trạng thái</label>
+                            <select asp-for="Status" class="form-select">
+                                <option value="Sẵn sàng">Sẵn sàng</option>
+                                <option value="Bảo trì">Bảo trì</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input asp-for="IsActive" class="form-check-input" type="checkbox" />
+                                <label asp-for="IsActive" class="form-check-label">
+                                    Xe đang hoạt động
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save"></i> Cập nhật
+                            </button>
+                            <a asp-action="Buses" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Quay lại
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

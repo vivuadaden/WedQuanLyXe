@@ -1,0 +1,399 @@
+﻿@model IEnumerable<BusManagementSystem.Models.Trip>
+
+@{
+    ViewData["Title"] = "Chuyến đi khả dụng";
+    var campuses = ViewBag.Campuses as IEnumerable<BusManagementSystem.Models.Campus>;
+    var fromCampus = ViewBag.FromCampus as string;
+    var toCampus = ViewBag.ToCampus as string;
+}
+
+<div class="container-fluid py-4">
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold">
+                <i class="bi bi-bus-front me-2"></i>Chuyến đi khả dụng
+            </h2>
+            <p class="text-muted">Tìm và đặt chỗ cho chuyến đi của bạn</p>
+        </div>
+    </div>
+
+    <!-- Alert Messages -->
+    @if (TempData["Success"] != null)
+    {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle me-2"></i>@TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-triangle me-2"></i>@TempData["Error"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+    }
+
+    <!-- Filter Section -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-5">
+                    <label class="form-label fw-bold">
+                        <i class="bi bi-geo-alt text-primary me-2"></i>Từ cơ sở
+                    </label>
+                    <select name="fromCampus" class="form-select">
+                        <option value="">-- Tất cả --</option>
+                        @if (campuses != null)
+                        {
+                            foreach (var campus in campuses)
+                            {
+                                        <option value="@campus.CampusName" 
+                                                selected="@(campus.CampusName == fromCampus)">
+                                    @campus.CampusName
+                                        </option>
+                            }
+                        }
+                    </select>
+                </div>
+
+                <div class="col-md-5">
+                    <label class="form-label fw-bold">
+                        <i class="bi bi-geo-alt-fill text-success me-2"></i>Đến cơ sở
+                    </label>
+                    <select name="toCampus" class="form-select">
+                        <option value="">-- Tất cả --</option>
+                        @if (campuses != null)
+                        {
+                            foreach (var campus in campuses)
+                            {
+                                        <option value="@campus.CampusName" 
+                                                selected="@(campus.CampusName == toCampus)">
+                                    @campus.CampusName
+                                        </option>
+                            }
+                        }
+                    </select>
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-search me-2"></i>Tìm kiếm
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <a asp-action="MyBookings" class="text-decoration-none">
+                <div class="card border-0 shadow-sm h-100 hover-card">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="bg-primary bg-opacity-10 rounded-3 p-3 me-3">
+                            <i class="bi bi-ticket-perforated text-primary fs-3"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">Chuyến của tôi</h6>
+                            <small class="text-muted">Xem lịch sử đặt chỗ</small>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body d-flex align-items-center">
+                    <div class="bg-success bg-opacity-10 rounded-3 p-3 me-3">
+                        <i class="bi bi-bus-front text-success fs-3"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">@Model.Count() chuyến đi</h6>
+                        <small class="text-muted">Đang khả dụng</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body d-flex align-items-center">
+                    <div class="bg-warning bg-opacity-10 rounded-3 p-3 me-3">
+                        <i class="bi bi-info-circle text-warning fs-3"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">Miễn phí</h6>
+                        <small class="text-muted">Đặt chỗ không mất phí</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trips List -->
+    @if (Model.Any())
+    {
+            <div class="row g-4">
+            @foreach (var trip in Model)
+            {
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card border-0 shadow-sm h-100 trip-card">
+                                <!-- Card Header -->
+                                <div class="card-header border-0 bg-gradient text-white py-3" 
+                                     style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">
+                                                <i class="bi bi-bus-front me-2"></i>@trip.Bus?.BusNumber
+                                            </h6>
+                                            <small class="opacity-75">@trip.Bus?.LicensePlate</small>
+                                        </div>
+                                @if (trip.Status == "Đã xác nhận")
+                                {
+                                                <span class="badge bg-white text-primary">
+                                                    <i class="bi bi-check-circle me-1"></i>Sẵn sàng
+                                                </span>
+                                }
+                                else if (trip.Status == "Đang đi")
+                                {
+                                                <span class="badge bg-warning">
+                                                    <i class="bi bi-arrow-repeat me-1"></i>Đang đi
+                                                </span>
+                                }
+                                    </div>
+                                </div>
+
+                                <!-- Card Body -->
+                                <div class="card-body p-4">
+                                    <!-- Route -->
+                                    <div class="mb-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <i class="bi bi-record-circle text-primary me-2"></i>
+                                            <strong class="text-primary">@trip.FromCampus?.CampusName</strong>
+                                        </div>
+                                        <div class="ms-3 border-start border-2 border-primary ps-3 py-1">
+                                            <small class="text-muted">
+                                                <i class="bi bi-clock me-1"></i>
+                                        @trip.DepartureTime.ToString("dd/MM/yyyy - HH:mm")
+                                            </small>
+                                        </div>
+                                        <div class="d-flex align-items-center mt-2">
+                                            <i class="bi bi-geo-alt-fill text-success me-2"></i>
+                                            <strong class="text-success">@trip.ToCampus?.CampusName</strong>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-3">
+
+                                    <!-- Trip Info -->
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-6">
+                                            <div class="bg-light rounded p-2 text-center">
+                                                <i class="bi bi-person text-primary"></i>
+                                                <small class="d-block text-muted">Tài xế</small>
+                                                <strong class="small">@trip.Driver?.FullName</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="bg-light rounded p-2 text-center">
+                                                <i class="bi bi-flag text-success"></i>
+                                                <small class="d-block text-muted">Dự kiến đến</small>
+                                                <strong class="small">@trip.EstimatedArrivalTime?.ToString("HH:mm")</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Seats Availability -->
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <small class="text-muted">
+                                                <i class="bi bi-people me-1"></i>Số chỗ còn trống
+                                            </small>
+                                            <strong class="@(trip.AvailableSeats < 5 ? "text-danger" : trip.AvailableSeats < 10 ? "text-warning" : "text-success")">
+                                        @trip.AvailableSeats / @trip.Bus?.Capacity
+                                            </strong>
+                                        </div>
+                                        <div class="progress" style="height: 8px;">
+                                    @{
+                                        var capacity = trip.Bus?.Capacity ?? 31;
+                                        var booked = capacity - trip.AvailableSeats;
+                                        var percentage = (booked * 100) / capacity;
+                                        var progressColor = percentage < 50 ? "bg-success" : percentage < 80 ? "bg-warning" : "bg-danger";
+                                    }
+                                            <div class="progress-bar @progressColor progress-bar-striped" 
+                                                 style="width: @percentage%"></div>
+                                        </div>
+                                @if (trip.AvailableSeats < 5)
+                                {
+                                                <small class="text-danger">
+                                                    <i class="bi bi-exclamation-triangle me-1"></i>Sắp hết chỗ!
+                                                </small>
+                                }
+                                    </div>
+                                </div>
+
+                                <!-- Card Footer -->
+                                <div class="card-footer bg-white border-0 pt-0 pb-3 px-4">
+                                    <div class="d-grid gap-2">
+                                @if (trip.AvailableSeats > 0)
+                                {
+                                                <form asp-action="BookSeat" method="post" class="mb-0">
+                                        @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="tripId" value="@trip.TripID" />
+                                                    <button type="submit" class="btn btn-primary w-100" 
+                                                            onclick="return confirm('Xác nhận đặt chỗ cho chuyến đi này?')">
+                                                        <i class="bi bi-bookmark-plus me-2"></i>Đặt chỗ ngay
+                                                    </button>
+                                                </form>
+                                }
+                                else
+                                {
+                                                <button class="btn btn-secondary w-100" disabled>
+                                                    <i class="bi bi-x-circle me-2"></i>Hết chỗ
+                                                </button>
+                                }
+                                        <a asp-action="TripDetails" asp-route-id="@trip.TripID" 
+                                           class="btn btn-outline-primary btn-sm">
+                                            <i class="bi bi-info-circle me-2"></i>Xem chi tiết
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            }
+            </div>
+    }
+    else
+    {
+            <!-- Empty State -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center py-5">
+                    <i class="bi bi-search text-muted" style="font-size: 5rem;"></i>
+                    <h4 class="mt-3 mb-2">Không tìm thấy chuyến đi</h4>
+                    <p class="text-muted mb-4">
+                    @if (!string.IsNullOrEmpty(fromCampus) || !string.IsNullOrEmpty(toCampus))
+                    {
+                        <text>Không có chuyến đi nào phù hợp với bộ lọc của bạn.</text>
+                    }
+                    else
+                    {
+                        <text>Hiện tại chưa có chuyến đi nào khả dụng.</text>
+                    }
+                    </p>
+                    <a asp-action="Index" class="btn btn-primary">
+                        <i class="bi bi-arrow-clockwise me-2"></i>Làm mới
+                    </a>
+                </div>
+            </div>
+    }
+</div>
+
+@section Scripts {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // Auto dismiss alerts
+                setTimeout(function() {
+                    $('.alert').fadeOut('slow');
+                }, 5000);
+
+                // SignalR Connection for realtime updates
+                const connection = new signalR.HubConnectionBuilder()
+                    .withUrl("/busRealtimeHub")
+                    .withAutomaticReconnect()
+                    .build();
+
+                connection.start()
+                    .then(() => console.log("SignalR Connected"))
+                    .catch(err => console.error(err));
+
+                // Listen for new trip available
+                connection.on("NewTripAvailable", (data) => {
+                    showNotification("success", data.message);
+                    setTimeout(() => location.reload(), 2000);
+                });
+
+                // Listen for seat availability changes
+                connection.on("SeatAvailabilityChanged", (data) => {
+                    console.log("Seat update:", data);
+                    // Update UI without full reload
+                    updateSeatDisplay(data.tripId, data.availableSeats);
+                });
+
+                // Listen for trip status changes
+                connection.on("TripStatusChanged", (data) => {
+                    if (data.status === "Hủy" || data.status === "Hoàn thành") {
+                        showNotification("info", "Có thay đổi về chuyến đi");
+                        setTimeout(() => location.reload(), 2000);
+                    }
+                });
+            });
+
+            function updateSeatDisplay(tripId, availableSeats) {
+                // Find and update the specific trip card
+                $(`[data-trip-id="${tripId}"]`).each(function() {
+                    // Update seat count and progress bar
+                    // This is a simplified version - adjust based on your needs
+                    location.reload();
+                });
+            }
+
+            function showNotification(type, message) {
+                const bgColor = type === 'success' ? 'bg-success' : type === 'info' ? 'bg-info' : 'bg-warning';
+                const icon = type === 'success' ? 'check-circle' : 'info-circle';
+
+                const notification = `
+                    <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+                        <div class="toast show ${bgColor} text-white" role="alert">
+                            <div class="toast-body">
+                                <i class="bi bi-${icon} me-2"></i>${message}
+                            </div>
+                        </div>
+                    </div>`;
+
+                $('body').append(notification);
+                setTimeout(() => $('.toast').remove(), 5000);
+            }
+        </script>
+}
+
+<style>
+    .trip-card {
+        transition: all 0.3s ease;
+    }
+
+    .trip-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.15) !important;
+    }
+
+    .hover-card {
+        transition: all 0.3s ease;
+    }
+
+    .hover-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1) !important;
+    }
+
+    .bg-gradient {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .bg-gradient::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.1)),
+                    linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.1));
+        background-size: 20px 20px;
+        background-position: 0 0, 10px 10px;
+        opacity: 0.3;
+    }
+</style>

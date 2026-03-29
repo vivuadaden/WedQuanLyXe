@@ -1,0 +1,677 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Hard\\BusManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\admin\\trips.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\admin\\trips.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\models\\tripstatushistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\models\\tripstatushistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\models\\trip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\models\\trip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\admin\\tripdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\admin\\tripdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\admin\\editbus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\admin\\editbus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\admin\\createbus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\admin\\createbus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\admin\\buses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\admin\\buses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\admin\\editdriver.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\admin\\editdriver.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\admin\\drivers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\admin\\drivers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\admin\\createdriver.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\admin\\createdriver.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\controllers\\testpasswordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\controllers\\testpasswordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\student\\mybookings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\student\\mybookings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\student\\tripdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\student\\tripdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\driver\\tripdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\driver\\tripdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\driver\\registertrip.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\driver\\registertrip.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\driver\\mytrips.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\driver\\mytrips.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\driver\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\driver\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\models\\campus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\models\\campus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\controllers\\drivercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\controllers\\drivercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\hubs\\busrealtimehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\hubs\\busrealtimehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\busmanagementsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\busmanagementsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\models\\bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\models\\bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|c:\\hard\\busmanagementsystem\\busmanagementsystem\\migrations\\20260101015029_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34DC7B2A-F9E2-4089-8186-4496D86B007C}|BusManagementSystem\\BusManagementSystem.csproj|solutionrelative:busmanagementsystem\\migrations\\20260101015029_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 570,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Buses.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\Buses.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Admin\\Buses.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\Buses.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Admin\\Buses.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:47:08.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TripDetails.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\TripDetails.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Admin\\TripDetails.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\TripDetails.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Admin\\TripDetails.cshtml",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAFQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:48:08.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:46:04.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "BusManagementSystem\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAMQBAAAAAAAAAAAAwNEBAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T02:34:37.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "BusManagementSystem\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAAAJ0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T01:28:07.164Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Trip.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\Trip.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Models\\Trip.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\Trip.cs",
+              "RelativeToolTip": "BusManagementSystem\\Models\\Trip.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAgwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T23:21:41.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TripStatusHistory.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\TripStatusHistory.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Models\\TripStatusHistory.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\TripStatusHistory.cs",
+              "RelativeToolTip": "BusManagementSystem\\Models\\TripStatusHistory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T23:22:31.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T01:30:40.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Trips.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\Trips.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Admin\\Trips.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\Trips.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Admin\\Trips.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAFoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:47:51.76Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EditDriver.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\EditDriver.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Admin\\EditDriver.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\EditDriver.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Admin\\EditDriver.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:46:56.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Drivers.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\Drivers.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Admin\\Drivers.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\Drivers.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Admin\\Drivers.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwEwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:46:26.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EditBus.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\EditBus.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Admin\\EditBus.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\EditBus.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Admin\\EditBus.cshtml",
+              "ViewState": "AgIAACUAAAAAAAAAAAAYwEYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:47:38.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CreateDriver.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\CreateDriver.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Admin\\CreateDriver.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\CreateDriver.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Admin\\CreateDriver.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:46:42.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CreateBus.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\CreateBus.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Admin\\CreateBus.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Admin\\CreateBus.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Admin\\CreateBus.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:47:23.765Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TestPasswordController.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\TestPasswordController.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Controllers\\TestPasswordController.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\TestPasswordController.cs",
+              "RelativeToolTip": "BusManagementSystem\\Controllers\\TestPasswordController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T04:09:38.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:21:43.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Program.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Program.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Program.cs",
+              "RelativeToolTip": "BusManagementSystem\\Program.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAFwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T01:25:18.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MyBookings.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Student\\MyBookings.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Student\\MyBookings.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Student\\MyBookings.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Student\\MyBookings.cshtml",
+              "ViewState": "AgIAAAQBAAAAAAAAAAAgwIkBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T03:35:01.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TripDetails.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Student\\TripDetails.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Student\\TripDetails.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Student\\TripDetails.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Student\\TripDetails.cshtml",
+              "ViewState": "AgIAAMwBAAAAAAAAAAAYwOsBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T03:35:17.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Student\\Index.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Student\\Index.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Student\\Index.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Student\\Index.cshtml",
+              "ViewState": "AgIAAG8BAAAAAAAAAAAYwI4BAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T03:34:47.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TripDetails.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Driver\\TripDetails.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Driver\\TripDetails.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Driver\\TripDetails.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Driver\\TripDetails.cshtml",
+              "ViewState": "AgIAAKsBAAAAAAAAAAAgwMoBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T03:29:30.887Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "RegisterTrip.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Driver\\RegisterTrip.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Driver\\RegisterTrip.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Driver\\RegisterTrip.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Driver\\RegisterTrip.cshtml",
+              "ViewState": "AgIAADoBAAAAAAAAAAAYwFkBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T03:29:16.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "MyTrips.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Driver\\MyTrips.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Driver\\MyTrips.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Driver\\MyTrips.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Driver\\MyTrips.cshtml",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAYwCoBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T03:29:02.166Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Driver\\Index.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Driver\\Index.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Driver\\Index.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Driver\\Index.cshtml",
+              "ViewState": "AgIAAO8AAAAAAAAAAAAYwF8BAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T03:28:49.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Models\\Role.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\Role.cs",
+              "RelativeToolTip": "BusManagementSystem\\Models\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T23:20:36.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\appsettings.json",
+              "RelativeDocumentMoniker": "BusManagementSystem\\appsettings.json",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\appsettings.json",
+              "RelativeToolTip": "BusManagementSystem\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-31T23:15:35.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "DriverController.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\DriverController.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Controllers\\DriverController.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\DriverController.cs",
+              "RelativeToolTip": "BusManagementSystem\\Controllers\\DriverController.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAApwI0AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T02:35:41.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "BusManagementSystem\\Controllers\\StudentController.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAApwMQAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T02:38:15.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "BusManagementSystem\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T23:23:46.325Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\User.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Models\\User.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\User.cs",
+              "RelativeToolTip": "BusManagementSystem\\Models\\User.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA3wCcAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T23:20:06.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\Booking.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Models\\Booking.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\Booking.cs",
+              "RelativeToolTip": "BusManagementSystem\\Models\\Booking.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAkwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T23:22:07.869Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Campus.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\Campus.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Models\\Campus.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\Campus.cs",
+              "RelativeToolTip": "BusManagementSystem\\Models\\Campus.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAswBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T23:20:57.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "BusRealtimeHub.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Hubs\\BusRealtimeHub.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Hubs\\BusRealtimeHub.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Hubs\\BusRealtimeHub.cs",
+              "RelativeToolTip": "BusManagementSystem\\Hubs\\BusRealtimeHub.cs",
+              "ViewState": "AgIAAJQAAAAAAAAAAADwv64AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T01:27:25.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAM4BAAAAAAAAAAAUwPABAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T02:23:01.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "20260101015029_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Migrations\\20260101015029_InitialCreate.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Migrations\\20260101015029_InitialCreate.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Migrations\\20260101015029_InitialCreate.cs",
+              "RelativeToolTip": "BusManagementSystem\\Migrations\\20260101015029_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T01:50:30.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T01:49:43.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "BusManagementSystem.csproj",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\BusManagementSystem.csproj",
+              "RelativeDocumentMoniker": "BusManagementSystem\\BusManagementSystem.csproj",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\BusManagementSystem.csproj",
+              "RelativeToolTip": "BusManagementSystem\\BusManagementSystem.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-01T01:34:31.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "BusManagementSystem\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAwDcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T01:28:41.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "BusManagementSystem\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-01T01:49:32.918Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "BusManagementSystem\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T01:48:05.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Bus.cs",
+              "DocumentMoniker": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\Bus.cs",
+              "RelativeDocumentMoniker": "BusManagementSystem\\Models\\Bus.cs",
+              "ToolTip": "C:\\Hard\\BusManagementSystem\\BusManagementSystem\\Models\\Bus.cs",
+              "RelativeToolTip": "BusManagementSystem\\Models\\Bus.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAgwCEAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T23:21:24.914Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

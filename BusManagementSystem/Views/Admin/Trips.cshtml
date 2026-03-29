@@ -1,0 +1,194 @@
+﻿@model IEnumerable<BusManagementSystem.Models.Trip>
+
+@{
+    ViewData["Title"] = "Quản lý chuyến đi";
+    var currentStatus = ViewBag.CurrentStatus as string ?? "all";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h2><i class="bi bi-calendar-check"></i> Quản lý chuyến đi</h2>
+        </div>
+        <div class="col-md-6 text-end">
+            <div class="btn-group">
+                <a asp-action="Trips" asp-route-status="all" 
+                   class="btn btn-@(currentStatus == "all" ? "primary" : "outline-primary")">
+                    Tất cả
+                </a>
+                <a asp-action="Trips" asp-route-status="Chờ xác nhận" 
+                   class="btn btn-@(currentStatus == "Chờ xác nhận" ? "warning" : "outline-warning")">
+                    Chờ xác nhận
+                </a>
+                <a asp-action="Trips" asp-route-status="Đã xác nhận" 
+                   class="btn btn-@(currentStatus == "Đã xác nhận" ? "success" : "outline-success")">
+                    Đã xác nhận
+                </a>
+                <a asp-action="Trips" asp-route-status="Đang đi" 
+                   class="btn btn-@(currentStatus == "Đang đi" ? "info" : "outline-info")">
+                    Đang đi
+                </a>
+                <a asp-action="Trips" asp-route-status="Hoàn thành" 
+                   class="btn btn-@(currentStatus == "Hoàn thành" ? "secondary" : "outline-secondary")">
+                    Hoàn thành
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Xe</th>
+                                    <th>Tài xế</th>
+                                    <th>Tuyến</th>
+                                    <th>Khởi hành</th>
+                                    <th>Chỗ trống</th>
+                                    <th>Trạng thái</th>
+                                    <th class="text-center">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var trip in Model)
+                            {
+                                        <tr>
+                                            <td>
+                                                <strong>@trip.Bus?.BusNumber</strong><br>
+                                                <small class="text-muted">@trip.Bus?.LicensePlate</small>
+                                            </td>
+                                            <td>
+                                        @trip.Driver?.FullName<br>
+                                                <small class="text-muted">@trip.Driver?.PhoneNumber</small>
+                                            </td>
+                                            <td>
+                                                <span class="text-primary">@trip.FromCampus?.CampusName</span>
+                                                <i class="bi bi-arrow-right"></i>
+                                                <span class="text-success">@trip.ToCampus?.CampusName</span>
+                                            </td>
+                                            <td>@trip.DepartureTime.ToString("HH:mm dd/MM/yyyy")</td>
+                                            <td>
+                                                <span class="badge bg-@(trip.AvailableSeats > 10 ? "success" : trip.AvailableSeats > 0 ? "warning" : "danger")">
+                                            @trip.AvailableSeats/31
+                                                </span>
+                                            </td>
+                                            <td>
+                                        @if (trip.Status == "Chờ xác nhận")
+                                        {
+                                                        <span class="badge bg-warning text-dark">@trip.Status</span>
+                                        }
+                                        else if (trip.Status == "Đã xác nhận")
+                                        {
+                                                        <span class="badge bg-success">@trip.Status</span>
+                                        }
+                                        else if (trip.Status == "Đang đi")
+                                        {
+                                                        <span class="badge bg-info">@trip.Status</span>
+                                        }
+                                        else if (trip.Status == "Hoàn thành")
+                                        {
+                                                        <span class="badge bg-secondary">@trip.Status</span>
+                                        }
+                                        else
+                                        {
+                                                        <span class="badge bg-danger">@trip.Status</span>
+                                        }
+                                            </td>
+                                            <td class="text-center">
+                                                <a asp-action="TripDetails" asp-route-id="@trip.TripID" 
+                                                   class="btn btn-sm btn-outline-info"
+                                                   title="Chi tiết">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+
+                                        @if (trip.Status == "Chờ xác nhận")
+                                        {
+                                                        <button class="btn btn-sm btn-success approve-btn" 
+                                                                data-trip-id="@trip.TripID"
+                                                                title="Xác nhận">
+                                                            <i class="bi bi-check-circle"></i>
+                                                        </button>
+                                                        <button class="btn btn-sm btn-danger reject-btn" 
+                                                                data-trip-id="@trip.TripID"
+                                                                title="Từ chối">
+                                                            <i class="bi bi-x-circle"></i>
+                                                        </button>
+                                        }
+                                            </td>
+                                        </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    }
+    else
+    {
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i> Không có chuyến đi nào!
+            </div>
+    }
+</div>
+
+@section Scripts {
+        <script>
+            // Xác nhận chuyến đi
+            $(document).on('click', '.approve-btn', function() {
+                const tripId = $(this).data('trip-id');
+
+                if (confirm('Xác nhận chuyến đi này?')) {
+                    $.ajax({
+                        url: '@Url.Action("ApproveTrip", "Admin")',
+                        type: 'POST',
+                        data: {
+                            tripId: tripId,
+                            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function(response) {
+                            alert(response.message);
+                            if (response.success) {
+                                location.reload();
+                            }
+                        },
+                        error: function() {
+                            alert('Có lỗi xảy ra!');
+                        }
+                    });
+                }
+            });
+
+            // Từ chối chuyến đi
+            $(document).on('click', '.reject-btn', function() {
+                const tripId = $(this).data('trip-id');
+
+                const reason = prompt('Nhập lý do từ chối:');
+                if (reason) {
+                    $.ajax({
+                        url: '@Url.Action("RejectTrip", "Admin")',
+                        type: 'POST',
+                        data: {
+                            tripId: tripId,
+                            reason: reason,
+                            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function(response) {
+                            alert(response.message);
+                            if (response.success) {
+                                location.reload();
+                            }
+                        },
+                        error: function() {
+                            alert('Có lỗi xảy ra!');
+                        }
+                    });
+                }
+            });
+        </script>
+}
+
+@Html.AntiForgeryToken()

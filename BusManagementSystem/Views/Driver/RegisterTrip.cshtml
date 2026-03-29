@@ -1,0 +1,346 @@
+﻿@model BusManagementSystem.Models.Trip
+
+@{
+    ViewData["Title"] = "Đăng ký chuyến mới";
+    var availableBuses = ViewBag.AvailableBuses as IEnumerable<BusManagementSystem.Models.Bus>;
+    var campuses = ViewBag.Campuses as IEnumerable<BusManagementSystem.Models.Campus>;
+}
+
+<div class="container-fluid py-4">
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a asp-action="MyTrips">Chuyến đi của tôi</a></li>
+                    <li class="breadcrumb-item active">Đăng ký chuyến mới</li>
+                </ol>
+            </nav>
+            <h2 class="fw-bold">
+                <i class="bi bi-plus-circle me-2"></i>Đăng ký chuyến đi mới
+            </h2>
+            <p class="text-muted">Điền thông tin chuyến đi và chờ admin xác nhận</p>
+        </div>
+    </div>
+
+    <!-- Alert Messages -->
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle me-2"></i>@TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="row">
+        <!-- Form -->
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="bi bi-pencil-square me-2"></i>Thông tin chuyến đi
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="RegisterTrip" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <!-- Bus Selection -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">
+                                <i class="bi bi-bus-front me-2"></i>Chọn xe buýt
+                                <span class="text-danger">*</span>
+                            </label>
+                            <select asp-for="BusID" class="form-select form-select-lg" required id="busSelect">
+                                <option value="">-- Chọn xe buýt --</option>
+                                @if (availableBuses != null)
+                                {
+                                    @foreach (var bus in availableBuses)
+                                    {
+                                        <option value="@bus.BusID"
+                                                data-capacity="@bus.Capacity"
+                                                data-license="@bus.LicensePlate">
+                                            @bus.BusNumber - @bus.LicensePlate (Sức chứa: @bus.Capacity chỗ)
+                                        </option>
+                                    }
+                                }
+                            </select>
+                            <small class="text-muted">Chỉ hiển thị các xe đang sẵn sàng</small>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <!-- Route Section -->
+                        <h6 class="fw-bold mb-3">
+                            <i class="bi bi-signpost-2 me-2"></i>Tuyến đường
+                        </h6>
+
+                        <div class="row g-3 mb-4">
+                            <!-- From Campus -->
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">
+                                    <i class="bi bi-geo-alt text-primary me-2"></i>Từ cơ sở
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <select asp-for="FromCampusID" class="form-select" required id="fromCampus">
+                                    <option value="">-- Chọn điểm khởi hành --</option>
+                                    @if (campuses != null)
+                                    {
+                                        @foreach (var campus in campuses)
+                                        {
+                                            <option value="@campus.CampusID">
+                                                @campus.CampusName
+                                            </option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+
+                            <!-- To Campus -->
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">
+                                    <i class="bi bi-geo-alt-fill text-success me-2"></i>Đến cơ sở
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <select asp-for="ToCampusID" class="form-select" required id="toCampus">
+                                    <option value="">-- Chọn điểm đến --</option>
+                                    @if (campuses != null)
+                                    {
+                                        @foreach (var campus in campuses)
+                                        {
+                                            <option value="@campus.CampusID">
+                                                @campus.CampusName
+                                            </option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <!-- Time Section -->
+                        <h6 class="fw-bold mb-3">
+                            <i class="bi bi-clock me-2"></i>Thời gian
+                        </h6>
+
+                        <div class="row g-3 mb-4">
+                            <!-- Departure Time -->
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">
+                                    Thời gian khởi hành
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="datetime-local"
+                                       asp-for="DepartureTime"
+                                       class="form-control form-control-lg"
+                                       required
+                                       id="departureTime" />
+                                <small class="text-muted">Chọn ngày và giờ khởi hành</small>
+                            </div>
+
+                            <!-- Estimated Arrival Time -->
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">
+                                    Thời gian đến dự kiến
+                                </label>
+                                <input type="datetime-local"
+                                       asp-for="EstimatedArrivalTime"
+                                       class="form-control form-control-lg"
+                                       id="arrivalTime" />
+                                <small class="text-muted">Tự động tính sau 2 giờ</small>
+                            </div>
+                        </div>
+
+                        <!-- Submit Buttons -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a asp-action="MyTrips" class="btn btn-outline-secondary btn-lg">
+                                <i class="bi bi-x-circle me-2"></i>Hủy
+                            </a>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-send me-2"></i>Đăng ký chuyến đi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Sidebar -->
+        <div class="col-lg-4">
+            <!-- Selected Bus Info -->
+            <div class="card border-0 shadow-sm mb-3" id="busInfoCard" style="display: none;">
+                <div class="card-header bg-primary text-white py-3">
+                    <h6 class="mb-0 fw-bold">
+                        <i class="bi bi-info-circle me-2"></i>Thông tin xe đã chọn
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <small class="text-muted d-block">Số xe</small>
+                        <h5 class="mb-0" id="selectedBusNumber">-</h5>
+                    </div>
+                    <div class="mb-3">
+                        <small class="text-muted d-block">Biển số</small>
+                        <h5 class="mb-0" id="selectedBusLicense">-</h5>
+                    </div>
+                    <div>
+                        <small class="text-muted d-block">Sức chứa</small>
+                        <h5 class="mb-0" id="selectedBusCapacity">-</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guidelines -->
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-header bg-warning text-dark py-3">
+                    <h6 class="mb-0 fw-bold">
+                        <i class="bi bi-lightbulb me-2"></i>Lưu ý quan trọng
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <ul class="mb-0 ps-3">
+                        <li class="mb-2">Chỉ được đăng ký 1 chuyến đi tại một thời điểm</li>
+                        <li class="mb-2">Chuyến đi cần được Admin xác nhận trước khi bắt đầu</li>
+                        <li class="mb-2">Xe buýt phải ở trạng thái "Sẵn sàng"</li>
+                        <li class="mb-2">Thời gian khởi hành phải trong tương lai</li>
+                        <li>Số chỗ mặc định là 31 chỗ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Process Steps -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-info text-white py-3">
+                    <h6 class="mb-0 fw-bold">
+                        <i class="bi bi-list-ol me-2"></i>Quy trình
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex mb-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                             style="width: 30px; height: 30px; min-width: 30px;">
+                            <small class="fw-bold">1</small>
+                        </div>
+                        <div class="ms-3">
+                            <small class="fw-bold d-block">Đăng ký chuyến đi</small>
+                            <small class="text-muted">Điền thông tin và gửi</small>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center"
+                             style="width: 30px; height: 30px; min-width: 30px;">
+                            <small class="fw-bold">2</small>
+                        </div>
+                        <div class="ms-3">
+                            <small class="fw-bold d-block">Chờ xác nhận</small>
+                            <small class="text-muted">Admin sẽ kiểm tra và xác nhận</small>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
+                             style="width: 30px; height: 30px; min-width: 30px;">
+                            <small class="fw-bold">3</small>
+                        </div>
+                        <div class="ms-3">
+                            <small class="fw-bold d-block">Bắt đầu chuyến đi</small>
+                            <small class="text-muted">Nhận thông báo và bắt đầu</small>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center"
+                             style="width: 30px; height: 30px; min-width: 30px;">
+                            <small class="fw-bold">4</small>
+                        </div>
+                        <div class="ms-3">
+                            <small class="fw-bold d-block">Hoàn thành</small>
+                            <small class="text-muted">Đánh dấu hoàn thành sau khi đến</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Auto-calculate arrival time (2 hours after departure)
+            $('#departureTime').change(function() {
+                var departureTime = new Date($(this).val());
+                if (departureTime) {
+                    var arrivalTime = new Date(departureTime.getTime() + (2 * 60 * 60 * 1000));
+
+                    // Format to datetime-local
+                    var year = arrivalTime.getFullYear();
+                    var month = String(arrivalTime.getMonth() + 1).padStart(2, '0');
+                    var day = String(arrivalTime.getDate()).padStart(2, '0');
+                    var hours = String(arrivalTime.getHours()).padStart(2, '0');
+                    var minutes = String(arrivalTime.getMinutes()).padStart(2, '0');
+
+                    var formattedTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+                    $('#arrivalTime').val(formattedTime);
+                }
+            });
+
+            // Set minimum date to today
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = String(today.getMonth() + 1).padStart(2, '0');
+            var day = String(today.getDate()).padStart(2, '0');
+            var hours = String(today.getHours()).padStart(2, '0');
+            var minutes = String(today.getMinutes()).padStart(2, '0');
+            var minDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+            $('#departureTime').attr('min', minDateTime);
+
+            // Show bus info when selected
+            $('#busSelect').change(function() {
+                var selectedOption = $(this).find('option:selected');
+
+                if ($(this).val()) {
+                    $('#selectedBusNumber').text(selectedOption.text().split(' - ')[0]);
+                    $('#selectedBusLicense').text(selectedOption.data('license'));
+                    $('#selectedBusCapacity').text(selectedOption.data('capacity') + ' chỗ');
+                    $('#busInfoCard').fadeIn();
+                } else {
+                    $('#busInfoCard').fadeOut();
+                }
+            });
+
+            // Validate campuses are different
+            $('form').submit(function(e) {
+                var fromCampus = $('#fromCampus').val();
+                var toCampus = $('#toCampus').val();
+
+                if (fromCampus === toCampus && fromCampus !== '') {
+                    e.preventDefault();
+                    alert('Điểm khởi hành và điểm đến không được giống nhau!');
+                    return false;
+                }
+
+                var departureTime = new Date($('#departureTime').val());
+                var now = new Date();
+
+                if (departureTime <= now) {
+                    e.preventDefault();
+                    alert('Thời gian khởi hành phải trong tương lai!');
+                    return false;
+                }
+            });
+        });
+    </script>
+}
+
+<style>
+    .form-control:focus, .form-select:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    .card {
+        transition: all 0.3s ease;
+    }
+</style>

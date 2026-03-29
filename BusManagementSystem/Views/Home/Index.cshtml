@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hệ thống quản lý xe buýt</h1>
+    <p class="lead">Chào mừng bạn đến với hệ thống quản lý xe buýt trường học</p>
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="mt-4">
+            <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg me-2">
+                <i class="bi bi-box-arrow-in-right"></i> Đăng nhập
+            </a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary btn-lg">
+                <i class="bi bi-person-plus"></i> Đăng ký
+            </a>
+        </div>
+    }
+</div>

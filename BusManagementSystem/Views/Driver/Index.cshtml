@@ -1,0 +1,352 @@
+﻿@model BusManagementSystem.Models.Trip
+
+@{
+    ViewData["Title"] = "Dashboard - Tài xế";
+    var stats = ViewBag.Stats;
+}
+
+<div class="container-fluid py-4">
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold">
+                <i class="bi bi-speedometer2 me-2"></i>Dashboard Tài xế
+            </h2>
+            <p class="text-muted">Chào mừng trở lại! Đây là tổng quan về các chuyến đi của bạn.</p>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-1 small">Tổng chuyến đi</p>
+                            <h3 class="fw-bold mb-0">@stats.TotalTrips</h3>
+                        </div>
+                        <div class="bg-primary bg-opacity-10 rounded-3 p-3">
+                            <i class="bi bi-bus-front text-primary fs-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-1 small">Chờ xác nhận</p>
+                            <h3 class="fw-bold mb-0 text-warning">@stats.PendingTrips</h3>
+                        </div>
+                        <div class="bg-warning bg-opacity-10 rounded-3 p-3">
+                            <i class="bi bi-clock-history text-warning fs-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-1 small">Đang hoạt động</p>
+                            <h3 class="fw-bold mb-0 text-success">@stats.ActiveTrips</h3>
+                        </div>
+                        <div class="bg-success bg-opacity-10 rounded-3 p-3">
+                            <i class="bi bi-arrow-repeat text-success fs-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-1 small">Hoàn thành</p>
+                            <h3 class="fw-bold mb-0 text-info">@stats.CompletedTrips</h3>
+                        </div>
+                        <div class="bg-info bg-opacity-10 rounded-3 p-3">
+                            <i class="bi bi-check-circle text-info fs-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Active Trip -->
+    @if (Model != null)
+    {
+            <div class="row">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-white border-bottom py-3">
+                            <h5 class="mb-0 fw-bold">
+                                <i class="bi bi-geo-alt-fill text-danger me-2"></i>Chuyến đi hiện tại
+                            </h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row g-4">
+                                <!-- Trip Info -->
+                                <div class="col-lg-8">
+                                    <div class="d-flex align-items-start mb-3">
+                                        <div class="flex-grow-1">
+                                            <h4 class="fw-bold mb-3">
+                                            @Model.FromCampus?.CampusName 
+                                                <i class="bi bi-arrow-right mx-2 text-primary"></i> 
+                                            @Model.ToCampus?.CampusName
+                                            </h4>
+
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="bi bi-bus-front text-muted me-2"></i>
+                                                        <div>
+                                                            <small class="text-muted d-block">Xe buýt</small>
+                                                            <strong>@Model.Bus?.BusNumber - @Model.Bus?.LicensePlate</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="bi bi-people-fill text-muted me-2"></i>
+                                                        <div>
+                                                            <small class="text-muted d-block">Chỗ còn trống</small>
+                                                            <strong>@Model.AvailableSeats / @Model.Bus?.Capacity</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="bi bi-clock text-muted me-2"></i>
+                                                        <div>
+                                                            <small class="text-muted d-block">Khởi hành</small>
+                                                            <strong>@Model.DepartureTime.ToString("dd/MM/yyyy HH:mm")</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="bi bi-flag-fill text-muted me-2"></i>
+                                                        <div>
+                                                            <small class="text-muted d-block">Dự kiến đến</small>
+                                                            <strong>@Model.EstimatedArrivalTime?.ToString("HH:mm")</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    @if (Model.Status == "Đã xác nhận")
+                                    {
+                                                <span class="badge bg-success fs-6 ms-3">
+                                                    <i class="bi bi-check-circle me-1"></i>Đã xác nhận
+                                                </span>
+                                    }
+                                    else if (Model.Status == "Đang đi")
+                                    {
+                                                <span class="badge bg-primary fs-6 ms-3">
+                                                    <i class="bi bi-arrow-repeat me-1"></i>Đang đi
+                                                </span>
+                                    }
+                                    </div>
+
+                                    <!-- Progress Bar -->
+                                @if (Model.Status == "Đang đi")
+                                {
+                                            <div class="mt-4">
+                                                <div class="d-flex justify-content-between mb-2">
+                                                    <small class="text-muted">Tiến độ chuyến đi</small>
+                                                    <small class="text-muted">Đang di chuyển...</small>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" 
+                                                         role="progressbar" style="width: 50%"></div>
+                                                </div>
+                                            </div>
+                                }
+                                </div>
+
+                                <!-- Actions -->
+                                <div class="col-lg-4">
+                                    <div class="d-grid gap-2">
+                                    @if (Model.Status == "Đã xác nhận")
+                                    {
+                                                <form asp-action="StartTrip" method="post" class="mb-0">
+                                            @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="id" value="@Model.TripID" />
+                                                    <button type="submit" class="btn btn-success btn-lg w-100" 
+                                                            onclick="return confirm('Bắt đầu chuyến đi?')">
+                                                        <i class="bi bi-play-circle me-2"></i>Bắt đầu chuyến đi
+                                                    </button>
+                                                </form>
+                                    }
+                                    else if (Model.Status == "Đang đi")
+                                    {
+                                                <form asp-action="CompleteTrip" method="post" class="mb-0">
+                                            @Html.AntiForgeryToken()
+                                                    <input type="hidden" name="id" value="@Model.TripID" />
+                                                    <button type="submit" class="btn btn-primary btn-lg w-100" 
+                                                            onclick="return confirm('Hoàn thành chuyến đi?')">
+                                                        <i class="bi bi-check-circle me-2"></i>Hoàn thành
+                                                    </button>
+                                                </form>
+                                    }
+
+                                        <a asp-action="TripDetails" asp-route-id="@Model.TripID" 
+                                           class="btn btn-outline-primary">
+                                            <i class="bi bi-info-circle me-2"></i>Xem chi tiết
+                                        </a>
+
+                                        <a asp-action="MyTrips" class="btn btn-outline-secondary">
+                                            <i class="bi bi-list-ul me-2"></i>Tất cả chuyến đi
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    }
+    else
+    {
+            <!-- No Active Trip -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body text-center py-5">
+                            <i class="bi bi-bus-front text-muted" style="font-size: 4rem;"></i>
+                            <h4 class="mt-3 mb-2">Không có chuyến đi đang hoạt động</h4>
+                            <p class="text-muted mb-4">Bạn chưa có chuyến đi nào đang hoạt động</p>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <a asp-action="RegisterTrip" class="btn btn-primary">
+                                    <i class="bi bi-plus-circle me-2"></i>Đăng ký chuyến mới
+                                </a>
+                                <a asp-action="MyTrips" class="btn btn-outline-primary">
+                                    <i class="bi bi-list-ul me-2"></i>Xem chuyến đi của tôi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    }
+
+    <!-- Quick Actions -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="bi bi-lightning-charge-fill text-warning me-2"></i>Thao tác nhanh
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <a asp-action="RegisterTrip" class="text-decoration-none">
+                                <div class="d-flex align-items-center p-3 bg-light rounded hover-shadow">
+                                    <i class="bi bi-plus-circle-fill text-primary fs-3 me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Đăng ký chuyến mới</h6>
+                                        <small class="text-muted">Tạo chuyến đi mới</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a asp-action="MyTrips" class="text-decoration-none">
+                                <div class="d-flex align-items-center p-3 bg-light rounded hover-shadow">
+                                    <i class="bi bi-list-check text-success fs-3 me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Chuyến đi của tôi</h6>
+                                        <small class="text-muted">Xem tất cả chuyến đi</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="#" class="text-decoration-none">
+                                <div class="d-flex align-items-center p-3 bg-light rounded hover-shadow">
+                                    <i class="bi bi-bell-fill text-warning fs-3 me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Thông báo</h6>
+                                        <small class="text-muted">Cập nhật realtime</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+        <script>
+            // SignalR Connection
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl("/busRealtimeHub")
+                .withAutomaticReconnect()
+                .build();
+
+            connection.start()
+                .then(() => console.log("SignalR Connected"))
+                .catch(err => console.error("SignalR Error:", err));
+
+            // Listen for trip approved
+            connection.on("TripApproved", (data) => {
+                if (data.message) {
+                    showNotification("success", data.message);
+                    setTimeout(() => location.reload(), 2000);
+                }
+            });
+
+            // Listen for trip rejected
+            connection.on("TripRejected", (data) => {
+                if (data.message) {
+                    showNotification("error", data.message + " - " + data.reason);
+                    setTimeout(() => location.reload(), 2000);
+                }
+            });
+
+            function showNotification(type, message) {
+                const bgColor = type === 'success' ? 'bg-success' : 'bg-danger';
+                const icon = type === 'success' ? 'check-circle' : 'exclamation-triangle';
+
+                const notification = `
+                    <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+                        <div class="toast show ${bgColor} text-white" role="alert">
+                            <div class="toast-body">
+                                <i class="bi bi-${icon} me-2"></i>${message}
+                            </div>
+                        </div>
+                    </div>`;
+
+                $('body').append(notification);
+                setTimeout(() => $('.toast').remove(), 5000);
+            }
+        </script>
+}
+
+<style>
+    .hover-shadow:hover {
+        box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075) !important;
+        transition: all 0.3s ease;
+    }
+</style>

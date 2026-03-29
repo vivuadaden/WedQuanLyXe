@@ -1,0 +1,492 @@
+﻿@model BusManagementSystem.Models.Trip
+
+@{
+    ViewData["Title"] = "Chi tiết chuyến đi";
+    var hasBooked = ViewBag.HasBooked as bool? ?? false;
+}
+
+<div class="container-fluid py-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index">Chuyến đi khả dụng</a></li>
+            <li class="breadcrumb-item active">Chi tiết chuyến đi #@Model.TripID</li>
+        </ol>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h2 class="fw-bold">
+                <i class="bi bi-info-circle me-2"></i>Chi tiết chuyến đi
+            </h2>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-2"></i>Quay lại
+            </a>
+        </div>
+    </div>
+
+    <!-- Alert Messages -->
+    @if (TempData["Success"] != null)
+    {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="bi bi-check-circle me-2"></i>@TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="bi bi-exclamation-triangle me-2"></i>@TempData["Error"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+    }
+
+    <div class="row g-4">
+        <!-- Main Trip Information -->
+        <div class="col-lg-8">
+            <!-- Route Card -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-header text-white py-4" 
+                     style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-1 fw-bold">
+                                <i class="bi bi-bus-front me-2"></i>
+                                @Model.Bus?.BusNumber - @Model.Bus?.LicensePlate
+                            </h5>
+                            <small class="opacity-75">Chuyến đi #@Model.TripID</small>
+                        </div>
+                        @if (Model.Status == "Đã xác nhận")
+                        {
+                                <span class="badge bg-white text-primary fs-6">
+                                    <i class="bi bi-check-circle me-1"></i>Sẵn sàng
+                                </span>
+                        }
+                        else if (Model.Status == "Đang đi")
+                        {
+                                <span class="badge bg-warning fs-6">
+                                    <i class="bi bi-arrow-repeat me-1"></i>Đang đi
+                                </span>
+                        }
+                    </div>
+                </div>
+
+                <div class="card-body p-4">
+                    <!-- Route Visual -->
+                    <div class="row mb-4">
+                        <div class="col-md-5">
+                            <div class="text-center p-4 bg-light rounded-3 h-100">
+                                <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
+                                     style="width: 60px; height: 60px;">
+                                    <i class="bi bi-geo-alt-fill text-primary fs-3"></i>
+                                </div>
+                                <h5 class="fw-bold mb-1">@Model.FromCampus?.CampusName</h5>
+                                <small class="text-muted">Điểm khởi hành</small>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-center justify-content-center">
+                            <div class="text-center">
+                                <i class="bi bi-arrow-right text-primary" style="font-size: 2.5rem;"></i>
+                                <br>
+                                <small class="text-muted">
+                                    @{
+                                        var duration = Model.EstimatedArrivalTime.HasValue
+                                            ? (Model.EstimatedArrivalTime.Value - Model.DepartureTime).TotalMinutes
+                                            : 0;
+                                    }
+                                    ~@((int)duration) phút
+                                </small>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="text-center p-4 bg-light rounded-3 h-100">
+                                <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
+                                     style="width: 60px; height: 60px;">
+                                    <i class="bi bi-geo-alt-fill text-success fs-3"></i>
+                                </div>
+                                <h5 class="fw-bold mb-1">@Model.ToCampus?.CampusName</h5>
+                                <small class="text-muted">Điểm đến</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Trip Details Grid -->
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start p-3 bg-light rounded">
+                                <i class="bi bi-calendar3 text-primary fs-4 me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Ngày khởi hành</small>
+                                    <h6 class="mb-0">@Model.DepartureTime.ToString("dddd, dd/MM/yyyy")</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start p-3 bg-light rounded">
+                                <i class="bi bi-clock text-primary fs-4 me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Giờ khởi hành</small>
+                                    <h6 class="mb-0">@Model.DepartureTime.ToString("HH:mm")</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start p-3 bg-light rounded">
+                                <i class="bi bi-flag-fill text-success fs-4 me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Dự kiến đến</small>
+                                    <h6 class="mb-0">
+                                        @(Model.EstimatedArrivalTime?.ToString("HH:mm") ?? "Chưa xác định")
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start p-3 bg-light rounded">
+                                <i class="bi bi-people-fill text-primary fs-4 me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Số chỗ còn trống</small>
+                                    <h6 class="mb-0" id="availableSeats">
+                                        @Model.AvailableSeats / @Model.Bus?.Capacity
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Driver Information -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="bi bi-person-badge text-primary me-2"></i>Thông tin tài xế
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" 
+                                 style="width: 80px; height: 80px;">
+                                <i class="bi bi-person fs-1"></i>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h5 class="mb-2 fw-bold">@Model.Driver?.FullName</h5>
+                            <div class="row g-2">
+                                <div class="col-md-6">
+                                    <small class="text-muted d-block">
+                                        <i class="bi bi-envelope me-2"></i>Email
+                                    </small>
+                                    <span>@Model.Driver?.Email</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <small class="text-muted d-block">
+                                        <i class="bi bi-telephone me-2"></i>Số điện thoại
+                                    </small>
+                                    <span>@Model.Driver?.PhoneNumber</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bus Information -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h5 class="mb-0 fw-bold">
+                        <i class="bi bi-bus-front text-primary me-2"></i>Thông tin xe buýt
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <small class="text-muted d-block mb-1">Số xe</small>
+                            <h6 class="mb-0">@Model.Bus?.BusNumber</h6>
+                        </div>
+                        <div class="col-md-4">
+                            <small class="text-muted d-block mb-1">Biển số</small>
+                            <h6 class="mb-0">@Model.Bus?.LicensePlate</h6>
+                        </div>
+                        <div class="col-md-4">
+                            <small class="text-muted d-block mb-1">Sức chứa</small>
+                            <h6 class="mb-0">@Model.Bus?.Capacity chỗ</h6>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <small class="text-muted d-block mb-2">Tỷ lệ lấp đầy</small>
+                        <div class="progress" style="height: 25px;">
+                            @{
+                                var capacity = Model.Bus?.Capacity ?? 31;
+                                var booked = capacity - Model.AvailableSeats;
+                                var percentage = (booked * 100) / capacity;
+                                var progressColor = percentage < 50 ? "bg-success" : percentage < 80 ? "bg-warning" : "bg-danger";
+                            }
+                            <div class="progress-bar @progressColor progress-bar-striped" 
+                                 id="seatProgress"
+                                 style="width: @percentage%">
+                                <strong>@booked / @capacity</strong>
+                            </div>
+                        </div>
+                        @if (Model.AvailableSeats < 5 && Model.AvailableSeats > 0)
+                        {
+                                <small class="text-danger mt-2 d-block">
+                                    <i class="bi bi-exclamation-triangle me-1"></i>
+                                    Chỉ còn @Model.AvailableSeats chỗ! Đặt ngay trước khi hết.
+                                </small>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Action Sidebar -->
+        <div class="col-lg-4">
+            <!-- Booking Card -->
+            <div class="card border-0 shadow-sm mb-3">
+                @if (hasBooked)
+                {
+                        <div class="card-header bg-success text-white py-3">
+                            <h6 class="mb-0 fw-bold">
+                                <i class="bi bi-check-circle me-2"></i>Bạn đã đặt chỗ
+                            </h6>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                            <h5 class="mt-3 mb-2">Đặt chỗ thành công!</h5>
+                            <p class="text-muted mb-4">Bạn đã có chỗ trên chuyến đi này</p>
+                            <a asp-action="MyBookings" class="btn btn-success w-100 mb-2">
+                                <i class="bi bi-ticket-perforated me-2"></i>Xem vé của tôi
+                            </a>
+                            <a asp-action="Index" class="btn btn-outline-secondary w-100">
+                                <i class="bi bi-arrow-left me-2"></i>Tìm chuyến khác
+                            </a>
+                        </div>
+                }
+                else
+                {
+                        <div class="card-header bg-primary text-white py-3">
+                            <h6 class="mb-0 fw-bold">
+                                <i class="bi bi-bookmark-plus me-2"></i>Đặt chỗ ngay
+                            </h6>
+                        </div>
+                        <div class="card-body p-4">
+                        @if (Model.AvailableSeats > 0)
+                        {
+                                    <div class="text-center mb-4">
+                                        <div class="display-4 fw-bold text-primary">
+                                    @Model.AvailableSeats
+                                        </div>
+                                        <small class="text-muted">chỗ còn trống</small>
+                                    </div>
+
+                                    <div class="alert alert-info mb-3">
+                                        <i class="bi bi-info-circle me-2"></i>
+                                        <small>Miễn phí đặt chỗ, không mất phí hủy!</small>
+                                    </div>
+
+                                    <form asp-action="BookSeat" method="post">
+                                @Html.AntiForgeryToken()
+                                        <input type="hidden" name="tripId" value="@Model.TripID" />
+                                        <button type="submit" class="btn btn-primary w-100 btn-lg" 
+                                                onclick="return confirm('Xác nhận đặt chỗ cho chuyến đi này?')">
+                                            <i class="bi bi-bookmark-plus me-2"></i>Đặt chỗ ngay
+                                        </button>
+                                    </form>
+                        }
+                        else
+                        {
+                                    <div class="text-center py-4">
+                                        <i class="bi bi-x-circle text-danger" style="font-size: 4rem;"></i>
+                                        <h5 class="mt-3 mb-2">Hết chỗ</h5>
+                                        <p class="text-muted mb-3">Chuyến đi này đã hết chỗ trống</p>
+                                        <a asp-action="Index" class="btn btn-outline-primary w-100">
+                                            <i class="bi bi-search me-2"></i>Tìm chuyến khác
+                                        </a>
+                                    </div>
+                        }
+                        </div>
+                }
+            </div>
+
+            <!-- Important Notes -->
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-header bg-warning text-dark py-3">
+                    <h6 class="mb-0 fw-bold">
+                        <i class="bi bi-exclamation-triangle me-2"></i>Lưu ý quan trọng
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <ul class="mb-0 ps-3 small">
+                        <li class="mb-2">Có mặt trước giờ khởi hành 10 phút</li>
+                        <li class="mb-2">Mang theo thẻ sinh viên để kiểm tra</li>
+                        <li class="mb-2">Liên hệ tài xế nếu có vấn đề</li>
+                        <li class="mb-2">Có thể hủy miễn phí trước 2 giờ khởi hành</li>
+                        <li>Giữ gìn vệ sinh trên xe</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Trip Timeline -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white border-bottom py-3">
+                    <h6 class="mb-0 fw-bold">
+                        <i class="bi bi-clock-history me-2"></i>Lịch trình
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="timeline">
+                        <div class="timeline-item mb-3">
+                            <div class="d-flex">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" 
+                                     style="width: 30px; height: 30px; min-width: 30px;">
+                                    <i class="bi bi-play-circle small"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <small class="text-muted d-block">Khởi hành</small>
+                                    <strong>@Model.DepartureTime.ToString("HH:mm")</strong>
+                                    <small class="d-block text-muted">@Model.FromCampus?.CampusName</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="d-flex">
+                                <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" 
+                                     style="width: 30px; height: 30px; min-width: 30px;">
+                                    <i class="bi bi-flag-fill small"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <small class="text-muted d-block">Đến nơi</small>
+                                    <strong>@(Model.EstimatedArrivalTime?.ToString("HH:mm") ?? "~" + Model.DepartureTime.AddHours(2).ToString("HH:mm"))</strong>
+                                    <small class="d-block text-muted">@Model.ToCampus?.CampusName</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // Auto dismiss alerts
+                setTimeout(function() {
+                    $('.alert-success, .alert-danger').fadeOut('slow');
+                }, 5000);
+
+                // SignalR Connection
+                const connection = new signalR.HubConnectionBuilder()
+                    .withUrl("/busRealtimeHub")
+                    .withAutomaticReconnect()
+                    .build();
+
+                connection.start()
+                    .then(() => {
+                        console.log("SignalR Connected");
+                        // Join this trip's group for updates
+                        connection.invoke("JoinTripGroup", @Model.TripID);
+                    })
+                    .catch(err => console.error(err));
+
+                // Listen for seat availability changes
+                connection.on("SeatAvailabilityChanged", (data) => {
+                    if (data.tripId === @Model.TripID) {
+                        console.log("Seat update:", data);
+                        updateSeatsDisplay(data.availableSeats);
+                    }
+                });
+
+                // Listen for trip status changes
+                connection.on("TripStatusChanged", (data) => {
+                    if (data.tripId === @Model.TripID) {
+                        showNotification("info", `Chuyến đi đã chuyển sang trạng thái: ${data.status}`);
+                        if (data.status === "Hủy" || data.status === "Hoàn thành") {
+                            setTimeout(() => location.reload(), 2000);
+                        }
+                    }
+                });
+
+                function updateSeatsDisplay(availableSeats) {
+                    const capacity = @(Model.Bus?.Capacity ?? 31);
+                    const booked = capacity - availableSeats;
+                    const percentage = (booked * 100) / capacity;
+
+                    // Update seat count
+                    $('#availableSeats').text(availableSeats + ' / ' + capacity);
+
+                    // Update progress bar
+                    const progressBar = $('#seatProgress');
+                    progressBar.css('width', percentage + '%');
+                    progressBar.html('<strong>' + booked + ' / ' + capacity + '</strong>');
+
+                    // Update color
+                    progressBar.removeClass('bg-success bg-warning bg-danger');
+                    if (percentage < 50) {
+                        progressBar.addClass('bg-success');
+                    } else if (percentage < 80) {
+                        progressBar.addClass('bg-warning');
+                    } else {
+                        progressBar.addClass('bg-danger');
+                    }
+
+                    // Show notification
+                    showNotification("info", `Cập nhật: Còn ${availableSeats} chỗ trống`);
+                }
+
+                function showNotification(type, message) {
+                    const bgColor = type === 'info' ? 'bg-info' : 'bg-primary';
+
+                    const notification = `
+                        <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+                            <div class="toast show ${bgColor} text-white" role="alert">
+                                <div class="toast-body">
+                                    <i class="bi bi-info-circle me-2"></i>${message}
+                                </div>
+                            </div>
+                        </div>`;
+
+                    $('body').append(notification);
+                    setTimeout(() => $('.toast').remove(), 5000);
+                }
+            });
+        </script>
+}
+
+<style>
+    .timeline-item {
+        position: relative;
+    }
+
+    .timeline-item:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 35px;
+        bottom: -15px;
+        width: 2px;
+        background: #dee2e6;
+    }
+
+    .card {
+        transition: all 0.3s ease;
+    }
+
+    .progress-bar-striped {
+        background-size: 1rem 1rem;
+    }
+</style>

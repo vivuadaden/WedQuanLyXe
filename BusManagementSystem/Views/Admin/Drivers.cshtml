@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BusManagementSystem.Models.User>
+@{
+    ViewData["Title"] = "Quản lý tài xế";
+}
+
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="bi bi-person-badge"></i> Quản lý tài xế</h2>
+        <a asp-action="CreateDriver" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Thêm tài xế
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            @if (Model.Any())
+            {
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên đăng nhập</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>SĐT</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var driver in Model)
+                        {
+                            <tr>
+                                <td>@driver.UserID</td>
+                                <td>@driver.Username</td>
+                                <td>@driver.FullName</td>
+                                <td>@driver.Email</td>
+                                <td>@driver.PhoneNumber</td>
+                                <td>
+                                    @if (driver.IsActive)
+                                    {
+                                        <span class="badge bg-success">Hoạt động</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Không hoạt động</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a asp-action="EditDriver" asp-route-id="@driver.UserID"
+                                       class="btn btn-sm btn-warning">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <form asp-action="DeleteDriver" asp-route-id="@driver.UserID"
+                                          method="post" style="display:inline;">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Xác nhận xóa?')">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="text-center py-4 text-muted">
+                    <i class="bi bi-inbox fs-1"></i>
+                    <p>Chưa có tài xế nào</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
